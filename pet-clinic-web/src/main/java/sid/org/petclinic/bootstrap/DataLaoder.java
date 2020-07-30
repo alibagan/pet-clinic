@@ -6,8 +6,6 @@ import sid.org.petclinic.model.Owner;
 import sid.org.petclinic.model.Vet;
 import sid.org.petclinic.service.OwnerService;
 import sid.org.petclinic.service.VetService;
-import sid.org.petclinic.service.map.OwnerServiceMap;
-import sid.org.petclinic.service.map.VetServiceMap;
 
 @Component
 public class DataLaoder implements CommandLineRunner {
@@ -15,10 +13,10 @@ public class DataLaoder implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
 
-    public DataLaoder(){
-        ownerService = new OwnerServiceMap();
-        vetService = new VetServiceMap();
 
+    public DataLaoder(OwnerService ownerService, VetService vetService) {
+        this.ownerService = ownerService;
+        this.vetService = vetService;
     }
 
     @Override

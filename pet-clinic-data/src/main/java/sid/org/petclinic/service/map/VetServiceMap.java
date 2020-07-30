@@ -1,10 +1,11 @@
 package sid.org.petclinic.service.map;
 
+import org.springframework.stereotype.Service;
 import sid.org.petclinic.model.Vet;
 import sid.org.petclinic.service.VetService;
 
 import java.util.Set;
-
+@Service
 public class VetServiceMap extends AbstractMapService<Long, Vet> implements VetService {
     @Override
     public Vet findById(Long id) {
