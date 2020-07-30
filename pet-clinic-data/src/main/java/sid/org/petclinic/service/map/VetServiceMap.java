@@ -1,11 +1,11 @@
 package sid.org.petclinic.service.map;
 
 import sid.org.petclinic.model.Vet;
-import sid.org.petclinic.service.CrudService;
+import sid.org.petclinic.service.VetService;
 
 import java.util.Set;
 
-public class VetServiceMap extends AbstractMapService<Long, Vet> implements CrudService<Vet, Long> {
+public class VetServiceMap extends AbstractMapService<Long, Vet> implements VetService {
     @Override
     public Vet findById(Long id) {
         return super.findById(id);
