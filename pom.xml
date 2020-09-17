@@ -17,6 +17,7 @@
     <artifactId>pet-clinic</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>pet-clinic</name>
+
     <description>Demo project for Spring Boot</description>
 
     <properties>
