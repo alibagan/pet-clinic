@@ -3,11 +3,14 @@ package sid.org.petclinic.bootstrap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import sid.org.petclinic.model.Owner;
+import sid.org.petclinic.model.Pet;
 import sid.org.petclinic.model.PetType;
 import sid.org.petclinic.model.Vet;
 import sid.org.petclinic.service.OwnerService;
 import sid.org.petclinic.service.PetTypeService;
 import sid.org.petclinic.service.VetService;
+
+import java.time.LocalDate;
 
 @Component
 public class DataLaoder implements CommandLineRunner {
@@ -28,16 +31,26 @@ public class DataLaoder implements CommandLineRunner {
 
         PetType dog = new PetType();
         dog.setName("Dog");
-        petTypeService.save(dog);
+        PetType petDog = petTypeService.save(dog);
 
         PetType cat = new PetType();
         cat.setName("Cat");
-        petTypeService.save(cat);
+        PetType petCat = petTypeService.save(cat);
 
         Owner owner1 = new Owner();
         owner1.setId(1L);
         owner1.setFirstname("bagan");
         owner1.setLastname("ali");
+        owner1.setAddress("144 rue la fayette");
+        owner1.setTelephone("02478374774");
+        owner1.setCity("Paris");
+
+        Pet mikesPet = new Pet();
+        mikesPet.setPetType(petDog);
+        mikesPet.setOwner(owner1);
+        mikesPet.setBithDate(LocalDate.now());
+        mikesPet.setName("Rosco");
+        owner1.getPets().add(mikesPet);
 
         ownerService.save(owner1);
 
@@ -45,6 +58,17 @@ public class DataLaoder implements CommandLineRunner {
         owner2.setId(2L);
         owner2.setFirstname("boualaoui");
         owner2.setLastname("oussama");
+        owner2.setAddress("150 avenue hassan 2");
+        owner2.setTelephone("0837837773");
+        owner2.setCity("Beni Mellal");
+
+        Pet fionasCat = new Pet();
+        fionasCat.setPetType(petCat);
+        fionasCat.setOwner(owner2);
+        fionasCat.setBithDate(LocalDate.now());
+        fionasCat.setName("Rosco cat");
+        owner2.getPets().add(fionasCat);
+
 
         ownerService.save(owner2);
 
@@ -63,12 +87,7 @@ public class DataLaoder implements CommandLineRunner {
         vet2.setLastname("maroussi");
 
         vetService.save(vet2);
-
         System.out.println("Loaded Vets ...........");
-
-
-
-
 
     }
 }
