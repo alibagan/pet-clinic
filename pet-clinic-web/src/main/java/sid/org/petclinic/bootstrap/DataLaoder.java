@@ -62,6 +62,8 @@ public class DataLaoder implements CommandLineRunner {
         owner2.setTelephone("0837837773");
         owner2.setCity("Beni Mellal");
 
+
+
         Pet fionasCat = new Pet();
         fionasCat.setPetType(petCat);
         fionasCat.setOwner(owner2);
